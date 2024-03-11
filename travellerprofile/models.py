@@ -14,7 +14,7 @@ class Traveller(models.Model):
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     bio = models.TextField(max_length=500)
-    profile_photo = CloudinaryField('image', default='placeholder')
+    profile_photo = CloudinaryField('image', default='placeholder', blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

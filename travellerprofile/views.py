@@ -5,7 +5,7 @@ from .models import Traveller
 # Create your views here.
 class TravellerList(generic.ListView):
     """
-    Returns all Traveller profiles in :model:`TravellerProfile:Traveller`
+    Returns all Traveller profiles in :model:`travellerprofile:Traveller`
     and displays them in a page of six posts.
     **Context**
 
@@ -19,4 +19,4 @@ class TravellerList(generic.ListView):
     :template:`blog/index.html`
     """
     queryset = Traveller.objects.all()
-    template_name = "TravellerProfile/index.html"
+    template_name = "travellerprofile/index.html"

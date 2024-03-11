@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
-    'TravellerProfile',
+    'travellerprofile',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +69,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'SeeMyTrip.urls'
+ROOT_URLCONF = 'seemytrip.urls'
 
 TEMPLATES = [
     {
@@ -87,7 +87,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SeeMyTrip.wsgi.application'
+WSGI_APPLICATION = 'seemytrip.wsgi.application'
 
 
 # Database
