@@ -43,18 +43,62 @@ def view_traveller(request):
         },
     )
 
+# def uploadToCloudinary(request_files):
+#     """
+#     Function to upload user photo to cloudinary
+#     """
+
+
+# def create_traveller(request):
+#     """
+#     Display form to allow user creation of a .models:Traveller instance
+#     """
+#     traveller_form = TravellerForm()
+#     print(TravellerForm)
+#     if request.method == "POST":
+#         traveller_form = TravellerForm(request.POST, request.FILES)
+#         print(request.FILES)
+#         if traveller_form.is_valid():
+#             traveller = traveller_form.save(commit=False)
+#             traveller.user = request.user
+#             traveller.profile_photo = request.FILES['profile_photo']
+#             traveller.save()
+#             # messages.add_message(
+#             #     request, messages.SUCCESS,
+#             #     'Comment submitted and awaiting approval'
+#             # )
+
+#     return render(
+#         request,
+#         "travellerprofile/create_traveller.html",
+#         {
+#             "traveller_form": traveller_form,
+#         }
+#     )
+
 def create_traveller(request):
     """
     Display form to allow user creation of a .models:Traveller instance
     """
-    traveller_form = TravellerForm()
-
-    return render(
-        request,
-        "travellerprofile/create_traveller.html",
-        {
-            "traveller_form": traveller_form,
-        }
-    )
-
+    context = {}
+    if request.method == "POST":
+        form = TravellerForm(request.POST, request.FILES)
+        if form.is_valid():
+            firstname = form.cleaned_data.get("firstname")
+            lastname = form.cleaned_data.get("lastname")
+            bio = form.cleaned_data.get("bio")
+            img = form.cleaned_data.get("profile_photo")
+            obj = Traveller.objects.create(
+                                 user = request.user,
+                                 firstname = firstname, 
+                                 lastname = lastname, 
+                                 bio = bio, 
+                                 profile_photo = img
+                                 )
+            obj.save()
+            print(obj)
+    else:
+        form = TravellerForm()
+    context['form'] = form
+    return render( request, "travellerprofile/create_traveller.html", context)
 

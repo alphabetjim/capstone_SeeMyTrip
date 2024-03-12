@@ -5,12 +5,10 @@
 
 <h2>Create your Profile:</h2>
 <p>Profile for {{ user.username }}</p>
-<form id="travellerForm" method="post"
-style="margin-top: 1.3em;">
-{{ traveller_form | crispy }}
-{% csrf_token %}
-<button id="submitButton" type="submit"
-    class="btn btn-signup btn-lg">Submit</button>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
 </form>
 
 {% endblock content %}
