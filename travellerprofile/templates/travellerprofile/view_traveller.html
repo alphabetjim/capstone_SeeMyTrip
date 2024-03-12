@@ -3,6 +3,7 @@
 {% load cloudinary %}
 
 {% block content %}
+<p>Logged in as {{ user }}</p>
 <h1>Traveller {{ traveller.firstname }} {{ traveller.lastname}}</h1>
 <h2>About</h2>
 <p>{{traveller.bio}}</p>
