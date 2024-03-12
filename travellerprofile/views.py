@@ -43,39 +43,6 @@ def view_traveller(request):
         },
     )
 
-# def uploadToCloudinary(request_files):
-#     """
-#     Function to upload user photo to cloudinary
-#     """
-
-
-# def create_traveller(request):
-#     """
-#     Display form to allow user creation of a .models:Traveller instance
-#     """
-#     traveller_form = TravellerForm()
-#     print(TravellerForm)
-#     if request.method == "POST":
-#         traveller_form = TravellerForm(request.POST, request.FILES)
-#         print(request.FILES)
-#         if traveller_form.is_valid():
-#             traveller = traveller_form.save(commit=False)
-#             traveller.user = request.user
-#             traveller.profile_photo = request.FILES['profile_photo']
-#             traveller.save()
-#             # messages.add_message(
-#             #     request, messages.SUCCESS,
-#             #     'Comment submitted and awaiting approval'
-#             # )
-
-#     return render(
-#         request,
-#         "travellerprofile/create_traveller.html",
-#         {
-#             "traveller_form": traveller_form,
-#         }
-#     )
-
 def create_traveller(request):
     """
     Display form to allow user creation of a .models:Traveller instance
