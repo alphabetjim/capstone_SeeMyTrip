@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cloudinary %}
 
 {% block content %}
 <h1>Traveller {{ traveller.firstname }} {{ traveller.lastname}}</h1>
 <h2>About</h2>
 <p>{{traveller.bio}}</p>
 <h2>Photo</h2>
-<img src="{{ traveller.profile_photo.url }}" alt="Profile photo">
+{% cloudinary traveller.profile_photo.name width=250 height=250 %}
 
 {% endblock content %}
