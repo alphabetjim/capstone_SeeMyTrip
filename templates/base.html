@@ -1,6 +1,7 @@
 {% load static %}
 
 {% url 'profile' as profile_url %}
+{% url 'view_traveller' as profileview_url %}
 
 <!DOCTYPE html>
 <html class="h-100" lang="en">
@@ -41,7 +42,10 @@
                         <a class="nav-link {% if request.path == profile_url %}active" aria-current="page{% endif %}"
                             href="{% url 'profile' %}">Profile</a>
                     </li>
-                    
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == profileview_url %}active" aria-current="page{% endif %}"
+                            href="{% url 'view_traveller' %}">My Profile</a>
+                    </li>
                 </ul>
                 <span class="navbar-text text-muted">
                     Plan the trip of a lifetime
