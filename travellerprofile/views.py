@@ -10,13 +10,13 @@ class TravellerList(generic.ListView):
     **Context**
 
     ``queryset``
-        All published instances of :model:`blog.Post`
-    ``paginate_by``
-        Number of posts per page.
+        All published instances of :model:`travellerprofile:Traveller`
 
     **Template:**
 
-    :template:`blog/index.html`
+    :template:`travellerprofile/index.html`
     """
     queryset = Traveller.objects.all()
+    print(queryset.first())
     template_name = "travellerprofile/index.html"
+
