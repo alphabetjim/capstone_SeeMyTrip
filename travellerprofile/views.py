@@ -4,17 +4,6 @@ from .models import Traveller
 from .forms import TravellerForm
 
 # Create your views here.
-def home_page(request):
-    """
-    Displays a landing page for the site
-    """
-
-    return render(
-        request,
-        "travellerprofile/home.html",
-        {},
-    )
-
 class TravellerList(generic.ListView):
     """
     Returns all Traveller profiles in :model:`travellerprofile:Traveller`

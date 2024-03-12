@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'cloudinary',
     'travellerprofile',
+    'trip',
 ]
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
