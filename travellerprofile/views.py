@@ -4,6 +4,17 @@ from .models import Traveller
 from .forms import TravellerForm
 
 # Create your views here.
+def home_page(request):
+    """
+    Displays a landing page for the site
+    """
+
+    return render(
+        request,
+        "travellerprofile/home.html",
+        {},
+    )
+
 class TravellerList(generic.ListView):
     """
     Returns all Traveller profiles in :model:`travellerprofile:Traveller`
@@ -51,19 +62,9 @@ def create_traveller(request):
     if request.method == "POST":
         form = TravellerForm(request.POST, request.FILES)
         if form.is_valid():
-            firstname = form.cleaned_data.get("firstname")
-            lastname = form.cleaned_data.get("lastname")
-            bio = form.cleaned_data.get("bio")
-            img = form.cleaned_data.get("profile_photo")
-            obj = Traveller.objects.create(
-                                 user = request.user,
-                                 firstname = firstname, 
-                                 lastname = lastname, 
-                                 bio = bio, 
-                                 profile_photo = img
-                                 )
-            obj.save()
-            print(obj)
+            traveller = form.save(commit=False)
+            traveller.user = request.user
+            traveller.save()
     else:
         form = TravellerForm()
     context['form'] = form
