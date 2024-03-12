@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Traveller
+from .forms import TravellerForm
 
 # Create your views here.
 class TravellerList(generic.ListView):
@@ -40,6 +41,20 @@ def view_traveller(request):
         {
             "traveller": traveller,
         },
+    )
+
+def create_traveller(request):
+    """
+    Display form to allow user creation of a .models:Traveller instance
+    """
+    traveller_form = TravellerForm()
+
+    return render(
+        request,
+        "travellerprofile/create_traveller.html",
+        {
+            "traveller_form": traveller_form,
+        }
     )
 
 
